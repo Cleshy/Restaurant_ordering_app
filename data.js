@@ -5,14 +5,12 @@ export const menuArray = [
     image: "./images/pizza.png",
     id: 0,
     price: 14,
-    emoji: "🍕",
   },
   {
     name: "Hamburger",
     ingredients: ["beef", "cheese", "lettuce"],
     image: "./images/burger.png",
     price: 12,
-    emoji: "🍔",
     id: 1,
   },
   {
@@ -20,7 +18,6 @@ export const menuArray = [
     ingredients: ["grain, hops, yeast, water"],
     image: "./images/beer.png",
     price: 12,
-    emoji: "🍺",
     id: 2,
   },
 ];
