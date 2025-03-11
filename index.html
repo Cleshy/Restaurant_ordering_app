@@ -3,7 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font: Smythe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Smythe&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
     <title>Restaurant Ordering App</title>
   </head>
-  <body></body>
+  <body>
+    <header class="header container">
+      <p class="title">Jimmy's Diner</p>
+      <p class="description">The best burgers and pizzas in town.</p>
+    </header>
+    <main class="main container">
+      <div id="menu">
+        <div class="menu-item">
+          <img src="./images/pizza.png" alt="" />
+          <div class="menu-item-info">
+            <p class="menu-item-title">Pizza</p>
+            <p class="menu-item-ingredients">pepperoni, mushrom, mozarella</p>
+            <span class="menu-item-price">$14</span>
+          </div>
+          <button class="menu-btn">
+            <ion-icon name="add-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </main>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script type="module" src="script.js"></script>
+  </body>
 </html>
