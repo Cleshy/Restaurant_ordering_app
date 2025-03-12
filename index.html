@@ -29,7 +29,39 @@
           <p class="total-title">Total price:</p>
           <p class="total-price" id="total-price">$26</p>
         </div>
-        <button class="btn-order">Complete order</button>
+        <button class="btn-order" id="btn-order">Complete order</button>
+      </div>
+      <div class="hidden" id="message-box">
+        <p class="message" id="message"></p>
+      </div>
+      <div class="modal-container hidden" id="modal">
+        <div class="modal">
+          <h3 class="modal-title">Enter card details</h3>
+          <form id="pay-form">
+            <input
+              class="modal-input"
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+            <input
+              class="modal-input"
+              type="text"
+              name="card"
+              placeholder="Enter card number"
+              required
+            />
+            <input
+              class="modal-input"
+              type="text"
+              name="cvv"
+              placeholder="Enter CVV"
+              required
+            />
+            <button class="btn-order" id="btn-pay">Pay</button>
+          </form>
+        </div>
       </div>
     </main>
     <script

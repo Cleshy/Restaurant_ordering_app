@@ -13,11 +13,51 @@ html {
 body {
   font-family: "Smythe", system-ui;
   font-weight: 400;
+  position: relative;
 }
 
 .container {
   max-width: 60rem;
   margin: 0 auto;
+}
+
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* Vízszintes középre */
+  align-items: center; /* Függőleges középre */
+}
+
+.modal {
+  max-width: 524px;
+  box-shadow: 5.19px 5.19px 255.44px rgba(0, 0, 0, 0.5);
+  padding: 2.4rem;
+  background-color: #fff;
+}
+
+.modal-title {
+  font-size: 2.4rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.modal-input {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #757575;
+  font-size: 2rem;
+  padding: 2rem;
 }
 
 header {
@@ -148,4 +188,13 @@ ion-icon:hover {
   border: none;
   background-color: #fff;
   margin-left: auto;
+}
+
+.message {
+  font-size: 3.2rem;
+  text-align: center;
+  color: #065f46;
+  background-color: #ecfdf5;
+  padding: 4rem 0;
+  margin-top: 4.5rem;
 }

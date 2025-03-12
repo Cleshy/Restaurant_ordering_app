@@ -4,6 +4,12 @@ const menuEl = document.getElementById("menu");
 const ordersEl = document.getElementById("orders");
 const orderListEl = document.getElementById("order-list");
 const totalPriceEl = document.getElementById("total-price");
+const completeOrderBtn = document.getElementById("btn-order");
+const modalEl = document.getElementById("modal");
+const payFormEl = document.getElementById("pay-form");
+
+const messageBoxEl = document.getElementById("message-box");
+const messageEl = document.getElementById("message");
 
 const ordersMap = new Map();
 
@@ -31,9 +37,13 @@ document.getElementById("menu").innerHTML = renderMenu(menu);
 
 menuEl.addEventListener("click", function (e) {
   if (e.target.dataset.id) {
-    const currentItem = menu[e.target.dataset.id];
-    addItemToCart(currentItem);
-    ordersEl.classList.remove("hidden");
+    const itemId = Number(e.target.dataset.id);
+    const currentItem = menu.find((item) => item.id === itemId);
+
+    if (currentItem) {
+      addItemToCart(currentItem);
+      ordersEl.classList.remove("hidden");
+    }
   }
 });
 
@@ -87,4 +97,28 @@ orderListEl.addEventListener("click", function (e) {
       }
     }
   }
+});
+
+completeOrderBtn.addEventListener("click", function (e) {
+  modalEl.classList.toggle("hidden");
+});
+
+modalEl.addEventListener("click", function (e) {
+  if (e.target === modalEl) {
+    modalEl.classList.add("hidden");
+  }
+});
+
+payFormEl.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const userName = e.target.elements.name.value;
+
+  messageEl.textContent = `Thanks, ${userName}! Your order is on its way!`;
+
+  ordersMap.clear();
+  renderOrders();
+  ordersEl.classList.add("hidden");
+  modalEl.classList.add("hidden");
+  messageBoxEl.classList.remove("hidden");
 });
