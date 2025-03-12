@@ -21,19 +21,13 @@
     </header>
     <main class="main container">
       <div id="menu"></div>
-      <div class="orders" id="order">
+      <div class="orders hidden" id="orders">
         <p class="orders-title">Your order</p>
-        <div class="order">
-          <div class="order-item">
-            <p class="order-title">1 x Pizza</p>
-            <p class="order-remove">remove</p>
-            <p class="order-price">$14</p>
-          </div>
-        </div>
+        <div class="order" id="order-list"></div>
         <hr />
         <div class="total">
           <p class="total-title">Total price:</p>
-          <p class="total-price">$26</p>
+          <p class="total-price" id="total-price">$26</p>
         </div>
         <button class="btn-order">Complete order</button>
       </div>

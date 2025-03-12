@@ -1,6 +1,11 @@
 import { menuArray as menu } from "./data.js";
 
-const orders = [];
+const menuEl = document.getElementById("menu");
+const ordersEl = document.getElementById("orders");
+const orderListEl = document.getElementById("order-list");
+const totalPriceEl = document.getElementById("total-price");
+
+const ordersMap = new Map();
 
 function renderMenu(menu) {
   return menu
@@ -14,7 +19,9 @@ function renderMenu(menu) {
                   )}</p>
                   <span class="menu-item-price">$${item.price}</span>
                 </div>
-                  <ion-icon data-id="${item.id}" name="add-outline"></ion-icon>
+                  <button class="icon-btn"><ion-icon data-id="${
+                    item.id
+                  }" name="add-outline"></ion-icon></button>
               </div>`;
     })
     .join("");
@@ -22,8 +29,62 @@ function renderMenu(menu) {
 
 document.getElementById("menu").innerHTML = renderMenu(menu);
 
-document.addEventListener("click", function (e) {
+menuEl.addEventListener("click", function (e) {
   if (e.target.dataset.id) {
-    console.log(menu[e.target.dataset.id]);
+    const currentItem = menu[e.target.dataset.id];
+    addItemToCart(currentItem);
+    ordersEl.classList.remove("hidden");
+  }
+});
+
+function addItemToCart(currentItem) {
+  const { name, price, id } = currentItem;
+
+  if (ordersMap.has(id)) {
+    ordersMap.get(id).count++;
+  } else {
+    ordersMap.set(id, { name, price, count: 1 });
+  }
+
+  renderOrders();
+}
+
+function renderOrders() {
+  let totalPrice = 0;
+  let ordersHTML = "";
+
+  ordersMap.forEach((order, id) => {
+    totalPrice += order.price * order.count;
+    ordersHTML += `<div class="order-item">
+                    <p class="order-title">${order.count} x ${order.name}</p>
+                    <p class="order-remove" data-id="${id}">remove</p>
+                    <p class="order-price">$${order.price * order.count}</p>
+                  </div>`;
+  });
+
+  totalPriceEl.textContent = `$${totalPrice}`;
+
+  orderListEl.innerHTML = ordersHTML;
+}
+
+orderListEl.addEventListener("click", function (e) {
+  if (e.target.classList.contains("order-remove")) {
+    const itemId = Number(e.target.dataset.id);
+
+    if (ordersMap.has(itemId)) {
+      const item = ordersMap.get(itemId);
+
+      if (item.count > 1) {
+        item.count--;
+      } else {
+        ordersMap.delete(itemId);
+      }
+
+      renderOrders();
+
+      if (ordersMap.size === 0) {
+        ordersEl.classList.add("hidden");
+      }
+    }
   }
 });
