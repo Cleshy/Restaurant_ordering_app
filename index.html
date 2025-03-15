@@ -16,8 +16,8 @@
   </head>
   <body>
     <header class="header container">
-      <p class="title">Jimmy's Diner</p>
-      <p class="description">The best burgers and pizzas in town.</p>
+      <p class="header-title">Jimmy's Diner</p>
+      <p class="header-description">The best burgers and pizzas in town.</p>
     </header>
     <main class="main container">
       <div id="menu"></div>
@@ -32,12 +32,12 @@
         <button class="btn-order" id="btn-order">Complete order</button>
       </div>
       <div class="hidden" id="message-box">
-        <p class="message" id="message"></p>
+        <p class="order-message" id="order-message"></p>
       </div>
       <div class="modal-container hidden" id="modal">
         <div class="modal">
           <h3 class="modal-title">Enter card details</h3>
-          <form id="pay-form">
+          <form class="modal-form" id="pay-form">
             <input
               class="modal-input"
               type="text"
@@ -54,7 +54,7 @@
             />
             <input
               class="modal-input"
-              type="text"
+              type="password"
               name="cvv"
               placeholder="Enter CVV"
               required

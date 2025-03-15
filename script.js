@@ -9,7 +9,7 @@ const modalEl = document.getElementById("modal");
 const payFormEl = document.getElementById("pay-form");
 
 const messageBoxEl = document.getElementById("message-box");
-const messageEl = document.getElementById("message");
+const messageEl = document.getElementById("order-message");
 
 const ordersMap = new Map();
 
@@ -25,7 +25,7 @@ function renderMenu(menu) {
                   )}</p>
                   <span class="menu-item-price">$${item.price}</span>
                 </div>
-                  <button class="icon-btn"><ion-icon data-id="${
+                  <button class="icon-btn"><ion-icon class="menu-icon" data-id="${
                     item.id
                   }" name="add-outline"></ion-icon></button>
               </div>`;
@@ -121,4 +121,10 @@ payFormEl.addEventListener("submit", function (e) {
   ordersEl.classList.add("hidden");
   modalEl.classList.add("hidden");
   messageBoxEl.classList.remove("hidden");
+
+  setTimeout(() => {
+    messageEl.classList.add("hidden");
+  }, 200);
+
+  payFormEl.reset();
 });
