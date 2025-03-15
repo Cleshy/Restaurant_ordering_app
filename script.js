@@ -124,7 +124,7 @@ payFormEl.addEventListener("submit", function (e) {
 
   setTimeout(() => {
     messageEl.classList.add("hidden");
-  }, 200);
+  }, 3000);
 
   payFormEl.reset();
 });
